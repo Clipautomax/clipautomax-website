@@ -3,24 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privacy Policy & Data Protection — Clipautomax®</title>
-    <meta name="description" content="Privacy Policy for Clipautomax AI Concierge. Plain-language transparency on lead flows, third-party processors, 30-day retention, and no-data-selling guarantee." />
+    <title>Privacy Policy — ClipAutoMax®</title>
+    <meta name="description" content="Privacy Policy for ClipAutoMax AI Concierge services, describing how shopper data, email leads, and analytics are handled securely." />
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
 
     <!-- Open Graph / Facebook Link Preview Tags -->
-    <meta property="og:site_name" content="Clipautomax®" />
-    <meta property="og:title" content="Privacy Policy & Data Protection — Clipautomax®" />
-    <meta property="og:description" content="Privacy Policy for Clipautomax AI Concierge. Plain-language transparency on lead flows, third-party processors, 30-day retention, and no-data-selling guarantee." />
+    <meta property="og:site_name" content="ClipAutoMax®" />
+    <meta property="og:title" content="Privacy Policy — ClipAutoMax®" />
+    <meta property="og:description" content="Privacy Policy for ClipAutoMax AI Concierge services, describing how shopper data, email leads, and analytics are handled securely." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/og-image.svg" />
 
     <!-- Twitter Card Link Preview Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Privacy Policy & Data Protection — Clipautomax®" />
-    <meta name="twitter:description" content="Privacy Policy for Clipautomax AI Concierge. Plain-language transparency on lead flows, third-party processors, 30-day retention, and no-data-selling guarantee." />
+    <meta name="twitter:title" content="Privacy Policy — ClipAutoMax®" />
+    <meta name="twitter:description" content="Privacy Policy for ClipAutoMax AI Concierge services, describing how shopper data, email leads, and analytics are handled securely." />
     <meta name="twitter:image" content="/og-image.svg" />
 
     <!-- Vercel Analytics Readiness -->
@@ -36,11 +36,20 @@
 
     <!-- Inlined Master Stylesheet -->
     <style>
+      html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        position: relative;
+        margin: 0;
+        padding: 0;
+      }
+
       :root {
         --bg-main: #F2F1ED;
         --bg-ink: #121212;
         --bg-card: #FFFFFF;
-        --text-ink: #121212;
+        --text-ink: #0f172a;
         --text-soft: #55534D;
         --border-color: #E4E2DC;
         --accent-teal: #3FD9C7;
@@ -59,9 +68,6 @@
         background-color: var(--bg-main);
         color: var(--text-ink);
         font-family: 'Inter', system-ui, -apple-system, sans-serif;
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
         line-height: 1.6;
       }
 
@@ -73,14 +79,29 @@
         font-family: 'JetBrains Mono', monospace;
       }
 
+      /* Logo Styling */
+      .brand-logo {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .logo-mark {
+        height: 28px;
+        width: auto;
+        object-fit: contain;
+        vertical-align: middle;
+        margin-right: 8px;
+      }
+
       /* Buttons */
       .btn-pill-dark {
-        background-color: var(--bg-ink);
+        background-color: #000000;
         color: #FFFFFF;
         font-family: 'Inter', sans-serif;
         font-weight: 600;
         padding: 0.75rem 1.75rem;
-        border-radius: var(--radius-pill);
+        border-radius: 9999px;
         transition: all 0.2s ease;
         display: inline-flex;
         align-items: center;
@@ -88,7 +109,7 @@
         gap: 0.5rem;
         cursor: pointer;
         text-decoration: none;
-        border: 1px solid var(--bg-ink);
+        border: 1px solid #000000;
         white-space: nowrap;
       }
 
@@ -144,54 +165,55 @@
       }
     </style>
   </head>
-  <body class="bg-[#F2F1ED] text-[#121212] min-h-screen flex flex-col font-sans">
-    <!-- Header -->
-    <header class="bg-white border-b border-[#E4E2DC] sticky top-0 z-50">
+  <body class="bg-[#F2F1ED] text-[#0f172a] min-h-screen flex flex-col font-sans">
+    <!-- Standalone Light Header for Subpages -->
+    <header class="w-full bg-white border-b border-[#E4E2DC] sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <a href="index.html" class="flex items-center gap-2.5 text-[#121212] no-underline">
-          <div class="w-9 h-9 rounded-full bg-[#121212] text-white flex items-center justify-center font-bold text-lg shadow-sm">
-            💧
-          </div>
-          <span class="text-xl sm:text-2xl font-black tracking-tight font-display text-[#121212]">ClipAutomax®</span>
+        <a href="index.html" class="brand-logo text-[#0f172a]">
+          <img src="Logo.jpg" alt="ClipAutoMax Logo" class="logo-mark" />
+          <span class="brand-name text-xl sm:text-2xl font-black tracking-tight font-display text-[#0f172a]">ClipAutoMax®</span>
         </a>
 
         <nav class="hidden md:flex items-center gap-8">
-          <a href="pricing.html" class="text-sm font-semibold text-[#55534D] hover:text-[#121212] transition-colors">Pricing</a>
-          <a href="compare.html" class="text-sm font-semibold text-[#55534D] hover:text-[#121212] transition-colors">Compare</a>
+          <a href="index.html" class="text-sm font-semibold text-[#1e293b] hover:text-[#0f172a] transition-colors">Home</a>
+          <a href="pricing.html" class="text-sm font-semibold text-[#1e293b] hover:text-[#0f172a] transition-colors">Pricing</a>
+          <a href="compare.html" class="text-sm font-semibold text-[#1e293b] hover:text-[#0f172a] transition-colors">Compare</a>
         </nav>
 
         <div class="flex items-center gap-4">
           <a href="pricing.html" class="btn-pill-dark text-xs sm:text-sm py-2.5 px-5">
             Get Started →
           </a>
-          <button id="mobile-menu-btn" class="md:hidden p-2 text-[#121212] hover:text-slate-600" aria-label="Toggle Menu">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button id="mobile-menu-btn" class="md:hidden p-2 text-[#0f172a] hover:text-slate-600 focus:outline-none" aria-label="Toggle Menu">
+            <svg class="w-6 h-6" fill="none" stroke="#0f172a" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
       </div>
 
-      <!-- Mobile Drawer Navigation -->
-      <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-[#E4E2DC] px-6 py-4 space-y-3">
-        <a href="pricing.html" class="block text-base font-semibold text-[#55534D] py-1">Pricing</a>
-        <a href="compare.html" class="block text-base font-semibold text-[#55534D] py-1">Compare</a>
-        <a href="terms.html" class="block text-base font-semibold text-[#55534D] py-1">Terms & Conditions</a>
-        <a href="privacy.html" class="block text-base font-bold text-[#121212] py-1">Privacy Policy</a>
+      <!-- Mobile Drawer Navigation Overlay -->
+      <div id="mobile-menu" class="hidden md:hidden fixed top-20 left-0 w-full bg-white border-b border-[#E4E2DC] px-6 py-6 space-y-4 shadow-xl z-[1000]">
+        <a href="index.html" class="block text-base font-semibold text-[#1e293b] hover:text-[#0f172a] py-1">Home</a>
+        <a href="pricing.html" class="block text-base font-semibold text-[#1e293b] hover:text-[#0f172a] py-1">Pricing</a>
+        <a href="compare.html" class="block text-base font-semibold text-[#1e293b] hover:text-[#0f172a] py-1">Compare</a>
+        <a href="terms.html" class="block text-base font-semibold text-[#1e293b] hover:text-[#0f172a] py-1">Terms & Conditions</a>
+        <a href="privacy.html" class="block text-base font-bold text-[#0f172a] py-1">Privacy Policy</a>
+        <a href="pricing.html" class="btn-pill-dark w-full text-center py-3 text-sm block">Get Started →</a>
       </div>
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1">
+    <main class="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex-1 space-y-10">
       <div class="text-center mb-10">
-        <span class="eyebrow-tag font-mono-tag text-[#121212] mb-3 text-[10px] sm:text-xs">
-          <span class="dot-teal"></span> DATA PROTECTION & TRUST
+        <span class="eyebrow-tag font-mono-tag text-[#121212] mb-3 text-xs">
+          <span class="dot-teal"></span> DATA PRIVACY
         </span>
         <h1 class="text-3xl sm:text-5xl font-black text-[#121212] mb-4 font-display">
           Privacy Policy
         </h1>
         <p class="text-xs sm:text-sm text-[#55534D] max-w-xl mx-auto leading-relaxed">
-          How Clipautomax handles, respects, and protects data collected through our website and AI concierge widget.
+          How ClipAutoMax collects, uses, and protects visitor and client data across our platform.
         </p>
         <div class="text-[11px] font-mono-tag text-slate-400 mt-2">
           Last Updated: July 26, 2026
@@ -201,50 +223,65 @@
       <!-- Main Content Privacy Card -->
       <div class="bg-white rounded-2xl border border-[#E4E2DC] p-6 sm:p-10 shadow-sm space-y-8 text-xs sm:text-sm leading-relaxed text-[#33312C]">
         <section class="space-y-3">
-          <h2 class="text-lg sm:text-xl font-bold text-[#121212] font-display">1. Data Collection & Lead Flow</h2>
+          <h2 class="text-lg sm:text-xl font-bold text-[#121212] font-display">1. Information We Collect</h2>
           <p>
-            When visitors interact with our AI concierge widget (ConvoCore), we may collect name, email, phone number, and chat message content voluntarily provided in chat. Leads flow via Make.com automation and are logged into a private Google Sheet accessible only to Clipautomax and the client store owner.
+            When storefront visitors interact with the ClipAutoMax AI Concierge, we collect information submitted during chat conversations (such as email addresses, sizing preferences, or product questions). We also collect standard usage analytics to ensure system uptime.
           </p>
         </section>
 
         <section class="space-y-3">
-          <h2 class="text-lg sm:text-xl font-bold text-[#121212] font-display">2. No Data Selling Guarantee</h2>
+          <h2 class="text-lg sm:text-xl font-bold text-[#121212] font-display">2. How We Use Information</h2>
           <p>
-            We strictly do NOT sell, rent, or trade visitor data to third parties. Data is shared only with processors necessary to deliver the service (ConvoCore, Make.com, Google Workspace).
+            Visitor chat data is used solely to answer product queries and route lead contact details to your designated Google Sheets account. We do not sell, rent, or trade visitor or client data to third parties under any circumstances.
           </p>
         </section>
 
         <section class="space-y-3">
-          <h2 class="text-lg sm:text-xl font-bold text-[#121212] font-display">3. Data Retention Policy</h2>
+          <h2 class="text-lg sm:text-xl font-bold text-[#121212] font-display">3. Third-Party Infrastructure</h2>
           <p>
-            Client lead records and chatbot interaction summaries are retained for the duration of the active subscription. Upon subscription cancellation or written termination, lead data stored within managed Google Sheets and automation logs is permanently deleted within 30 days, unless longer retention is required by law.
+            Our concierge widget and automation workflows utilize secure third-party infrastructure providers (including Voiceglow / ConvoCore, Make.com, and Google Workspace APIs). Data is encrypted in transit and at rest.
           </p>
         </section>
 
         <section class="space-y-3">
-          <h2 class="text-lg sm:text-xl font-bold text-[#121212] font-display">4. User Rights & Contact</h2>
+          <h2 class="text-lg sm:text-xl font-bold text-[#121212] font-display">4. Data Retention & Deletion Rights</h2>
           <p>
-            You may request access, correction, or deletion of your personal data at any time by emailing <a href="mailto:clipautomax@gmail.com" class="font-bold underline text-[#121212]">clipautomax@gmail.com</a>.
+            Store owners can request the complete deletion of their catalog training data and logged leads at any time by contacting our support team at <a href="mailto:clipautomax@gmail.com" class="font-bold underline text-[#0f766e]">clipautomax@gmail.com</a>.
+          </p>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="text-lg sm:text-xl font-bold text-[#121212] font-display">5. Contact Us</h2>
+          <p>
+            If you have questions regarding this Privacy Policy, please email <a href="mailto:clipautomax@gmail.com" class="underline font-bold text-[#121212]">clipautomax@gmail.com</a>.
           </p>
         </section>
       </div>
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-[#E4E2DC] py-8 bg-white mt-auto px-6">
-      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#55534D]">
-        <div class="flex items-center gap-2">
-          <span class="font-extrabold text-[#121212] text-sm font-display">ClipAutomax®</span>
+    <footer class="w-full bg-white border-t border-[#E4E2DC] py-8 mt-auto">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#55534D]">
+        <div class="flex items-center gap-2.5">
+          <a href="index.html" class="brand-logo text-[#0f172a]">
+            <img src="Logo.jpg" alt="ClipAutoMax Logo" class="logo-mark" />
+            <span class="brand-name font-extrabold text-[#0f172a] text-sm font-display">ClipAutoMax®</span>
+          </a>
+          <span class="text-slate-400 font-mono-tag">| AI Concierge Engine</span>
         </div>
-        <div class="flex items-center gap-6 font-semibold">
-          <a href="index.html" class="hover:text-[#121212]">Home</a>
-          <a href="pricing.html" class="hover:text-[#121212]">Pricing</a>
-          <a href="compare.html" class="hover:text-[#121212]">Compare</a>
-          <a href="terms.html" class="hover:text-[#121212]">Terms & Conditions</a>
-          <a href="privacy.html" class="hover:text-[#121212]">Privacy Policy</a>
-          <a href="mailto:Clipautomax@gmail.com" class="hover:text-[#121212]">Clipautomax@gmail.com</a>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 font-semibold">
+          <a href="index.html" class="hover:text-[#0f172a]">Home</a>
+          <a href="pricing.html" class="hover:text-[#0f172a]">Pricing</a>
+          <a href="compare.html" class="hover:text-[#0f172a]">Compare</a>
+          <a href="terms.html" class="hover:text-[#0f172a]">Terms & Conditions</a>
+          <a href="privacy.html" class="hover:text-[#0f172a]">Privacy Policy</a>
+          <a href="mailto:Clipautomax@gmail.com" class="hover:text-[#0f172a]">Clipautomax@gmail.com</a>
         </div>
-        <div class="text-slate-400">© 2026 Clipautomax. All rights reserved.</div>
+
+        <div class="text-slate-400">
+          © 2026 ClipAutoMax. All rights reserved.
+        </div>
       </div>
     </footer>
 
@@ -301,3 +338,4 @@
     </script>
   </body>
 </html>
+
