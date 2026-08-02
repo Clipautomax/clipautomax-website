@@ -3,24 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clipautomax® vs Agencies & DIY Bots — Solution Comparison</title>
-    <meta name="description" content="Compare Clipautomax against expensive custom agency setups ($3,000+) and unmanaged DIY chatbots ($49/mo). See why concierge AI yields higher conversion." />
+    <title>ClipAutoMax vs Custom Agencies vs DIY Tools — Comparison</title>
+    <meta name="description" content="Honest, checkable comparison between ClipAutoMax AI Concierge, custom agency dev, and off-the-shelf DIY chatbot tools." />
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
 
     <!-- Open Graph / Facebook Link Preview Tags -->
-    <meta property="og:site_name" content="Clipautomax®" />
-    <meta property="og:title" content="Clipautomax® vs Agencies & DIY Bots — Solution Comparison" />
-    <meta property="og:description" content="Compare Clipautomax against expensive custom agency setups ($3,000+) and unmanaged DIY chatbots ($49/mo). See why concierge AI yields higher conversion." />
+    <meta property="og:site_name" content="ClipAutoMax®" />
+    <meta property="og:title" content="ClipAutoMax vs Custom Agencies vs DIY Tools — Comparison" />
+    <meta property="og:description" content="Honest, checkable comparison between ClipAutoMax AI Concierge, custom agency dev, and off-the-shelf DIY chatbot tools." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/og-image.svg" />
 
     <!-- Twitter Card Link Preview Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Clipautomax® vs Agencies & DIY Bots — Solution Comparison" />
-    <meta name="twitter:description" content="Compare Clipautomax against expensive custom agency setups ($3,000+) and unmanaged DIY chatbots ($49/mo). See why concierge AI yields higher conversion." />
+    <meta name="twitter:title" content="ClipAutoMax vs Custom Agencies vs DIY Tools — Comparison" />
+    <meta name="twitter:description" content="Honest, checkable comparison between ClipAutoMax AI Concierge, custom agency dev, and off-the-shelf DIY chatbot tools." />
     <meta name="twitter:image" content="/og-image.svg" />
 
     <!-- Vercel Analytics Readiness -->
@@ -36,11 +36,20 @@
 
     <!-- Inlined Master Stylesheet -->
     <style>
+      html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        position: relative;
+        margin: 0;
+        padding: 0;
+      }
+
       :root {
         --bg-main: #F2F1ED;
         --bg-ink: #121212;
         --bg-card: #FFFFFF;
-        --text-ink: #121212;
+        --text-ink: #0f172a;
         --text-soft: #55534D;
         --border-color: #E4E2DC;
         --accent-teal: #3FD9C7;
@@ -59,9 +68,6 @@
         background-color: var(--bg-main);
         color: var(--text-ink);
         font-family: 'Inter', system-ui, -apple-system, sans-serif;
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
         line-height: 1.6;
       }
 
@@ -73,43 +79,29 @@
         font-family: 'JetBrains Mono', monospace;
       }
 
-      /* Hero Container */
-      .hero-card-container {
-        background-color: var(--bg-ink);
-        color: #FFFFFF;
-        border-radius: var(--radius-hero);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-        position: relative;
-        overflow: hidden;
+      /* Logo Styling */
+      .brand-logo {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
       }
 
-      /* Content Cards */
-      .card-clean {
-        background-color: var(--bg-card);
-        border-radius: var(--radius-card);
-        padding: 2rem;
-        border: 1px solid var(--border-color);
-        box-shadow: var(--shadow-subtle);
-        transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
-      }
-
-      .card-clean-static {
-        background-color: var(--bg-card);
-        border-radius: var(--radius-card);
-        padding: 2rem;
-        border: 1px solid var(--border-color);
-        box-shadow: var(--shadow-subtle);
+      .logo-mark {
+        height: 28px;
+        width: auto;
+        object-fit: contain;
+        vertical-align: middle;
+        margin-right: 8px;
       }
 
       /* Buttons */
       .btn-pill-dark {
-        background-color: var(--bg-ink);
+        background-color: #000000;
         color: #FFFFFF;
         font-family: 'Inter', sans-serif;
         font-weight: 600;
         padding: 0.75rem 1.75rem;
-        border-radius: var(--radius-pill);
+        border-radius: 9999px;
         transition: all 0.2s ease;
         display: inline-flex;
         align-items: center;
@@ -117,7 +109,7 @@
         gap: 0.5rem;
         cursor: pointer;
         text-decoration: none;
-        border: 1px solid var(--bg-ink);
+        border: 1px solid #000000;
         white-space: nowrap;
       }
 
@@ -127,49 +119,6 @@
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
       }
 
-      .btn-pill-white {
-        background-color: #FFFFFF;
-        color: var(--bg-ink);
-        font-family: 'Inter', sans-serif;
-        font-weight: 700;
-        padding: 0.75rem 1.75rem;
-        border-radius: var(--radius-pill);
-        transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        cursor: pointer;
-        text-decoration: none;
-        border: none;
-        white-space: nowrap;
-      }
-
-      .btn-pill-white:hover {
-        background-color: #F2F1ED;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
-      }
-
-      .btn-pill-hero-outline {
-        background-color: rgba(255, 255, 255, 0.1);
-        color: #FFFFFF;
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        font-family: 'Inter', sans-serif;
-        font-weight: 600;
-        padding: 0.75rem 1.75rem;
-        border-radius: var(--radius-pill);
-        transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        cursor: pointer;
-        text-decoration: none;
-        white-space: nowrap;
-      }
-
-      /* Eyebrows & Tags */
       .eyebrow-tag {
         font-family: 'JetBrains Mono', monospace;
         font-size: 0.75rem;
@@ -190,19 +139,11 @@
         display: inline-block;
       }
 
-      .overflow-x-auto {
+      /* Comparison Table Mobile Scroll */
+      .table-scroll-container {
+        width: 100%;
+        overflow-x: auto;
         -webkit-overflow-scrolling: touch;
-      }
-
-      @media (max-width: 640px) {
-        .card-clean, .card-clean-static {
-          padding: 1.25rem;
-          border-radius: 14px;
-        }
-
-        .btn-pill-white, .btn-pill-dark {
-          min-height: 44px;
-        }
       }
 
       #VG_OVERLAY_CONTAINER {
@@ -231,206 +172,166 @@
       }
     </style>
   </head>
-  <body class="bg-[#F2F1ED] text-[#121212] min-h-screen flex flex-col font-sans">
-    <!-- Header -->
-    <header class="bg-white border-b border-[#E4E2DC] sticky top-0 z-50">
+  <body class="bg-[#F2F1ED] text-[#0f172a] min-h-screen flex flex-col font-sans">
+    <!-- Standalone Light Header for Subpages -->
+    <header class="w-full bg-white border-b border-[#E4E2DC] sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <a href="index.html" class="flex items-center gap-2.5 text-[#121212] no-underline">
-          <div class="w-9 h-9 rounded-full bg-[#121212] text-white flex items-center justify-center font-bold text-lg shadow-sm">
-            💧
-          </div>
-          <span class="text-xl sm:text-2xl font-black tracking-tight font-display text-[#121212]">ClipAutomax®</span>
+        <a href="index.html" class="brand-logo text-[#0f172a]">
+          <img src="Logo.jpg" alt="ClipAutoMax Logo" class="logo-mark" />
+          <span class="brand-name text-xl sm:text-2xl font-black tracking-tight font-display text-[#0f172a]">ClipAutoMax®</span>
         </a>
 
         <nav class="hidden md:flex items-center gap-8">
-          <a href="pricing.html" class="text-sm font-semibold text-[#55534D] hover:text-[#121212] transition-colors">Pricing</a>
-          <a href="compare.html" class="text-sm font-bold text-[#121212] transition-colors">Compare</a>
+          <a href="index.html" class="text-sm font-semibold text-[#1e293b] hover:text-[#0f172a] transition-colors">Home</a>
+          <a href="pricing.html" class="text-sm font-semibold text-[#1e293b] hover:text-[#0f172a] transition-colors">Pricing</a>
+          <a href="compare.html" class="text-sm font-bold text-[#0f172a] transition-colors">Compare</a>
         </nav>
 
         <div class="flex items-center gap-4">
           <a href="pricing.html" class="btn-pill-dark text-xs sm:text-sm py-2.5 px-5">
             Get Started →
           </a>
-          <button id="mobile-menu-btn" class="md:hidden p-2 text-[#121212] hover:text-slate-600" aria-label="Toggle Menu">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button id="mobile-menu-btn" class="md:hidden p-2 text-[#0f172a] hover:text-slate-600 focus:outline-none" aria-label="Toggle Menu">
+            <svg class="w-6 h-6" fill="none" stroke="#0f172a" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
       </div>
 
-      <!-- Mobile Drawer Navigation -->
-      <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-[#E4E2DC] px-6 py-4 space-y-3">
-        <a href="pricing.html" class="block text-base font-semibold text-[#55534D] py-1">Pricing</a>
-        <a href="compare.html" class="block text-base font-bold text-[#121212] py-1">Compare</a>
-        <a href="terms.html" class="block text-base font-semibold text-[#55534D] py-1">Terms & Conditions</a>
-        <a href="privacy.html" class="block text-base font-semibold text-[#55534D] py-1">Privacy Policy</a>
+      <!-- Mobile Drawer Navigation Overlay -->
+      <div id="mobile-menu" class="hidden md:hidden fixed top-20 left-0 w-full bg-white border-b border-[#E4E2DC] px-6 py-6 space-y-4 shadow-xl z-[1000]">
+        <a href="index.html" class="block text-base font-semibold text-[#1e293b] hover:text-[#0f172a] py-1">Home</a>
+        <a href="pricing.html" class="block text-base font-semibold text-[#1e293b] hover:text-[#0f172a] py-1">Pricing</a>
+        <a href="compare.html" class="block text-base font-bold text-[#0f172a] py-1">Compare</a>
+        <a href="terms.html" class="block text-base font-semibold text-[#1e293b] hover:text-[#0f172a] py-1">Terms & Conditions</a>
+        <a href="privacy.html" class="block text-base font-semibold text-[#1e293b] hover:text-[#0f172a] py-1">Privacy Policy</a>
+        <a href="pricing.html" class="btn-pill-dark w-full text-center py-3 text-sm block">Get Started →</a>
       </div>
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1">
-      <div class="text-center mb-12">
-        <span class="eyebrow-tag font-mono-tag text-[#121212] mb-3">
+    <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex-1 space-y-12">
+      <!-- Page Hero Header -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="eyebrow-tag font-mono-tag text-[#121212] mb-3 text-xs">
           <span class="dot-teal"></span> HONEST COMPARISON
         </span>
         <h1 class="text-3xl sm:text-5xl font-black text-[#121212] mb-4 font-display">
-          How Clipautomax Compares
+          How ClipAutoMax Compares
         </h1>
-        <p class="text-sm sm:text-base text-[#55534D] max-w-2xl mx-auto leading-relaxed">
-          No fabricated claims or inflated numbers. Here is a clear, checkable breakdown of how Clipautomax compares to custom development agencies and DIY tools.
+        <p class="text-sm sm:text-base text-[#55534D] leading-relaxed">
+          No fabricated claims or inflated numbers. Here is a clear, checkable breakdown of how ClipAutoMax compares to custom development agencies and DIY tools.
         </p>
       </div>
 
-      <!-- Comparison Table -->
-      <div class="bg-white rounded-2xl border border-[#E4E2DC] shadow-sm overflow-hidden mb-16">
-        <div class="overflow-x-auto">
-          <table class="w-full text-left border-collapse min-w-[640px]">
+      <!-- Comparison Matrix Table Container with Mobile Horizontal Scroll Wrapper -->
+      <div class="overflow-x-auto w-full rounded-2xl border border-[#E4E2DC] shadow-sm mb-12 bg-white">
+        <div class="table-scroll-container">
+          <table class="w-full text-left border-collapse min-w-[700px]">
             <thead>
-              <tr class="bg-[#121212] text-white">
-                <th class="p-4 sm:p-6 font-display font-bold text-sm sm:text-base w-1/4">Feature / Parameter</th>
-                <th class="p-4 sm:p-6 font-display font-black text-sm sm:text-base text-[#3FD9C7] bg-[#1a1a1a] w-1/4">
-                  <div class="flex items-center gap-2">
-                    <span>ClipAutomax®</span>
-                    <span class="text-[10px] font-mono-tag uppercase px-2 py-0.5 rounded bg-[#3FD9C7] text-[#121212]">Done For You</span>
-                  </div>
+              <tr class="bg-[#121212] text-white text-xs font-mono-tag">
+                <th class="py-4 px-6 border-b border-[#262626] w-1/4">Feature / Parameter</th>
+                <th class="py-4 px-6 border-b border-[#262626] w-1/3 bg-[#1e1e1e] text-[#3FD9C7] font-bold">
+                  ClipAutoMax® Done For You
                 </th>
-                <th class="p-4 sm:p-6 font-display font-bold text-sm sm:text-base text-slate-300 w-1/4">
-                  <div>Typical Custom Agency</div>
-                  <div class="text-[10px] font-normal text-slate-400 font-sans tracking-normal mt-0.5">(typical industry range)</div>
+                <th class="py-4 px-6 border-b border-[#262626] w-1/4 text-slate-300">
+                  Typical Custom Agency <br/><span class="text-[10px] text-slate-400 font-normal">(typical industry range)</span>
                 </th>
-                <th class="p-4 sm:p-6 font-display font-bold text-sm sm:text-base text-slate-300 w-1/4">
-                  <div>DIY / Off-The-Shelf Tools</div>
-                  <div class="text-[10px] font-normal text-slate-400 font-sans tracking-normal mt-0.5">(typical industry range)</div>
+                <th class="py-4 px-6 border-b border-[#262626] w-1/4 text-slate-300">
+                  DIY / Off-The-Shelf Tools <br/><span class="text-[10px] text-slate-400 font-normal">(typical industry range)</span>
                 </th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-[#E4E2DC] text-xs sm:text-sm">
-              <!-- Row 1: Setup Time -->
-              <tr class="hover:bg-[#F2F1ED]/50 transition-colors">
-                <td class="p-4 sm:p-6 font-bold text-[#121212]">Setup Time & Deployment</td>
-                <td class="p-4 sm:p-6 font-bold text-[#121212] bg-[#3FD9C7]/5 border-x border-[#E4E2DC]">
-                  ⚡ <span class="text-[#0f766e]">Fast, done-for-you</span> concierge deployment (days, not weeks)
-                </td>
-                <td class="p-4 sm:p-6 text-[#55534D]">4 to 8 weeks custom development pipeline</td>
-                <td class="p-4 sm:p-6 text-[#55534D]">Hours/Days of manual trial & error configuration</td>
+            <tbody class="text-xs sm:text-sm divide-y divide-[#E4E2DC] text-[#33312C]">
+              <tr>
+                <td class="py-4 px-6 font-bold text-[#121212] bg-[#F2F1ED]/50">Setup Time</td>
+                <td class="py-4 px-6 font-semibold bg-[#3FD9C7]/5 text-[#121212]">⚡ Fast, done-for-you concierge deployment (days, not weeks)</td>
+                <td class="py-4 px-6 text-[#55534D]">4–8 weeks custom dev cycle</td>
+                <td class="py-4 px-6 text-[#55534D]">Hours of self-configuration required</td>
               </tr>
-
-              <!-- Row 2: Catalog & Sizing Training -->
-              <tr class="hover:bg-[#F2F1ED]/50 transition-colors">
-                <td class="p-4 sm:p-6 font-bold text-[#121212]">Catalog & Sizing Training</td>
-                <td class="p-4 sm:p-6 font-bold text-[#121212] bg-[#3FD9C7]/5 border-x border-[#E4E2DC]">
-                  ✓ <span class="text-[#0f766e]">Included</span> — trained on your exact SKUs, charts & rules
-                </td>
-                <td class="p-4 sm:p-6 text-[#55534D]">$3,000–$5,000+ custom setup and data mapping fee</td>
-                <td class="p-4 sm:p-6 text-[#55534D]">Manual file uploads & complex prompt engineering required</td>
+              <tr>
+                <td class="py-4 px-6 font-bold text-[#121212] bg-[#F2F1ED]/50">Catalog & Sizing</td>
+                <td class="py-4 px-6 font-semibold bg-[#3FD9C7]/5 text-[#121212]">✓ Included — trained on your exact SKUs, charts & rules</td>
+                <td class="py-4 px-6 text-[#55534D]">Extra fee or complex custom code</td>
+                <td class="py-4 px-6 text-[#55534D]">Generic bot rules only</td>
               </tr>
-
-              <!-- Row 3: Lead Capture Method -->
-              <tr class="hover:bg-[#F2F1ED]/50 transition-colors">
-                <td class="p-4 sm:p-6 font-bold text-[#121212]">Lead Capture Pipeline</td>
-                <td class="p-4 sm:p-6 font-bold text-[#121212] bg-[#3FD9C7]/5 border-x border-[#E4E2DC]">
-                  ✓ <span class="text-[#0f766e]">Real-time Google Sheets auto-sync</span> included
-                </td>
-                <td class="p-4 sm:p-6 text-[#55534D]">Custom webhook / API development required</td>
-                <td class="p-4 sm:p-6 text-[#55534D]">Requires Zapier or paid third-party add-ons</td>
+              <tr>
+                <td class="py-4 px-6 font-bold text-[#121212] bg-[#F2F1ED]/50">Lead Capture</td>
+                <td class="py-4 px-6 font-semibold bg-[#3FD9C7]/5 text-[#121212]">✓ Real-time Google Sheets auto-sync included</td>
+                <td class="py-4 px-6 text-[#55534D]">Custom webhook integration required</td>
+                <td class="py-4 px-6 text-[#55534D]">Manual CSV exports or paid Zapier tier</td>
               </tr>
-
-              <!-- Row 4: Pricing & Costs -->
-              <tr class="hover:bg-[#F2F1ED]/50 transition-colors">
-                <td class="p-4 sm:p-6 font-bold text-[#121212]">Pricing Structure</td>
-                <td class="p-4 sm:p-6 font-bold text-[#121212] bg-[#3FD9C7]/5 border-x border-[#E4E2DC]">
-                  💎 <span class="text-[#0f766e]">$197–$276/mo</span> transparent founding rate
-                </td>
-                <td class="p-4 sm:p-6 text-[#55534D]">$3,000–$10,000 upfront + $500/mo retainer</td>
-                <td class="p-4 sm:p-6 text-[#55534D]">$50–$200/mo + variable per-token API fees</td>
+              <tr>
+                <td class="py-4 px-6 font-bold text-[#121212] bg-[#F2F1ED]/50">Pricing</td>
+                <td class="py-4 px-6 font-bold bg-[#3FD9C7]/5 text-[#121212]">💎 $197–$276/mo transparent founding rate</td>
+                <td class="py-4 px-6 text-[#55534D]">$3,000–$10,000 upfront + monthly maintenance</td>
+                <td class="py-4 px-6 text-[#55534D]">$49–$200/mo + heavy setup labor</td>
               </tr>
-
-              <!-- Row 5: Contract Lock-in -->
-              <tr class="hover:bg-[#F2F1ED]/50 transition-colors">
-                <td class="p-4 sm:p-6 font-bold text-[#121212]">Contract Terms</td>
-                <td class="p-4 sm:p-6 font-bold text-[#121212] bg-[#3FD9C7]/5 border-x border-[#E4E2DC]">
-                  ✓ <span class="text-[#0f766e]">Month-to-month</span>, cancel anytime
-                </td>
-                <td class="p-4 sm:p-6 text-[#55534D]">6 to 12 month agency retainer contracts</td>
-                <td class="p-4 sm:p-6 text-[#55534D]">Monthly platform subscription</td>
+              <tr>
+                <td class="py-4 px-6 font-bold text-[#121212] bg-[#F2F1ED]/50">Contract Terms</td>
+                <td class="py-4 px-6 font-semibold bg-[#3FD9C7]/5 text-[#121212]">✓ Month-to-month, cancel anytime</td>
+                <td class="py-4 px-6 text-[#55534D]">6 to 12-month retainer agreements</td>
+                <td class="py-4 px-6 text-[#55534D]">Monthly or annual lock-in</td>
               </tr>
-
-              <!-- Row 6: Guarantee Terms -->
-              <tr class="hover:bg-[#F2F1ED]/50 transition-colors">
-                <td class="p-4 sm:p-6 font-bold text-[#121212]">Money-Back Guarantee</td>
-                <td class="p-4 sm:p-6 font-bold text-[#121212] bg-[#3FD9C7]/5 border-x border-[#E4E2DC]">
-                  🛡️ <span class="text-[#0f766e]">Strict 48-Hour 100% Refund</span> guarantee
-                </td>
-                <td class="p-4 sm:p-6 text-[#55534D]">No setup guarantee or refunds</td>
-                <td class="p-4 sm:p-6 text-[#55534D]">No dedicated setup support or guarantee</td>
+              <tr>
+                <td class="py-4 px-6 font-bold text-[#121212] bg-[#F2F1ED]/50">Money-Back Guarantee</td>
+                <td class="py-4 px-6 font-bold bg-[#3FD9C7]/5 text-emerald-800">🛡️ Strict 48-Hour 100% Refund guarantee</td>
+                <td class="py-4 px-6 text-[#55534D]">No refunds once development starts</td>
+                <td class="py-4 px-6 text-[#55534D]">Non-refundable self-serve subscriptions</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <!-- Why Clipautomax Section -->
-      <section class="max-w-4xl mx-auto mb-16">
-        <div class="card-clean-static p-8 sm:p-12 bg-white rounded-2xl border border-[#E4E2DC]">
-          <h2 class="text-2xl font-bold text-[#121212] mb-4 font-display">Why We Built Clipautomax This Way</h2>
-          <p class="text-sm text-[#55534D] leading-relaxed mb-6">
-            Most boutique e-commerce brands are trapped between two bad options: paying $5,000+ to an agency that takes two months to build a custom bot, or spending weekends fighting with generic AI tools that hallucinate return rules and confuse shoppers.
-          </p>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
-            <div class="p-4 bg-[#F2F1ED] rounded-xl border border-[#E4E2DC]">
-              <span class="font-bold text-[#121212] block mb-1">Done-For-You Speed</span>
-              <span class="text-[#55534D]">We handle the entire prompt architecture, sizing chart ingestion, and testing so you go live in days.</span>
-            </div>
-            <div class="p-4 bg-[#F2F1ED] rounded-xl border border-[#E4E2DC]">
-              <span class="font-bold text-[#121212] block mb-1">Zero Financial Risk</span>
-              <span class="text-[#55534D]">If your custom AI concierge isn't fully operational and matching your store's standard within days of setup, you get a 100% refund.</span>
-            </div>
-          </div>
-        </div>
+      <!-- Narrative Section: Why We Built ClipAutoMax -->
+      <section class="max-w-4xl mx-auto bg-white rounded-2xl border border-[#E4E2DC] p-6 sm:p-10 shadow-sm space-y-4">
+        <h3 class="text-xl font-bold text-[#121212] font-display">Why We Built ClipAutoMax</h3>
+        <p class="text-xs sm:text-sm text-[#55534D] leading-relaxed">
+          E-commerce store owners don't have time to build complex chatbot flowcharts or spend $5,000 hiring custom software agencies. They simply want a done-for-you concierge that accurately answers sizing questions, guides customers, and logs lead contact information into Google Sheets.
+        </p>
+        <p class="text-xs sm:text-sm text-[#55534D] leading-relaxed">
+          ClipAutoMax bridges this gap: we handle the full setup, train the AI on your exact catalog, and manage the technical maintenance so you can focus on growing your store.
+        </p>
       </section>
 
-      <!-- CTA Block -->
-      <section class="max-w-4xl mx-auto text-center">
-        <div class="hero-card-container p-8 sm:p-12 text-center">
-          <h2 class="text-2xl sm:text-4xl font-black text-white mb-4 font-display">
-            Ready for a Fast, Done-For-You AI Concierge?
-          </h2>
-          <p class="text-slate-300 text-sm sm:text-base max-w-md mx-auto mb-6">
-            Lock in founding rates before all 5 spots are claimed.
+      <!-- CTA Card -->
+      <section class="max-w-4xl mx-auto">
+        <div class="bg-[#121212] text-white rounded-2xl p-8 sm:p-12 text-center border border-[#262626]">
+          <h2 class="text-2xl sm:text-3xl font-bold mb-3 font-display">Ready for a Fast, Done-For-You AI Concierge?</h2>
+          <p class="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto mb-6">
+            Lock in your founding client rate today. Backed by our 48-Hour Money-Back Guarantee.
           </p>
-
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="pricing.html" class="btn-pill-white text-sm py-3.5 px-8">
-              Claim Founding Rate →
-            </a>
-            <a href="mailto:Clipautomax@gmail.com" class="btn-pill-hero-outline text-sm py-3.5 px-8">
-              Email Founder →
-            </a>
-          </div>
+          <a href="pricing.html" class="btn-pill-dark bg-white text-[#121212] hover:bg-[#F2F1ED] text-sm py-3 px-8 inline-block">
+            View Founding Rates →
+          </a>
         </div>
       </section>
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-[#E4E2DC] py-8 bg-white mt-auto px-6">
-      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
-        <div class="flex items-center gap-2">
-          <span class="font-extrabold text-[#121212] text-sm font-display">ClipAutomax®</span>
+    <footer class="w-full bg-white border-t border-[#E4E2DC] py-8 mt-auto">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#55534D]">
+        <div class="flex items-center gap-2.5">
+          <a href="index.html" class="brand-logo text-[#0f172a]">
+            <img src="logo.webp" alt="ClipAutoMax Logo" class="logo-mark" />
+            <span class="brand-name font-extrabold text-[#0f172a] text-sm font-display">ClipAutoMax®</span>
+          </a>
           <span class="text-slate-400 font-mono-tag">| AI Concierge Engine</span>
         </div>
 
-        <div class="flex items-center gap-6 font-semibold text-[#55534D]">
-          <a href="index.html" class="hover:text-[#121212]">Home</a>
-          <a href="pricing.html" class="hover:text-[#121212]">Pricing</a>
-          <a href="compare.html" class="hover:text-[#121212]">Compare</a>
-          <a href="terms.html" class="hover:text-[#121212]">Terms & Conditions</a>
-          <a href="privacy.html" class="hover:text-[#121212]">Privacy Policy</a>
-          <a href="mailto:Clipautomax@gmail.com" class="hover:text-[#121212]">Clipautomax@gmail.com</a>
+        <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 font-semibold">
+          <a href="index.html" class="hover:text-[#0f172a]">Home</a>
+          <a href="pricing.html" class="hover:text-[#0f172a]">Pricing</a>
+          <a href="compare.html" class="hover:text-[#0f172a]">Compare</a>
+          <a href="terms.html" class="hover:text-[#0f172a]">Terms & Conditions</a>
+          <a href="privacy.html" class="hover:text-[#0f172a]">Privacy Policy</a>
+          <a href="mailto:Clipautomax@gmail.com" class="hover:text-[#0f172a]">Clipautomax@gmail.com</a>
         </div>
 
         <div class="text-slate-400">
-          © 2026 Clipautomax. All rights reserved.
+          © 2026 ClipAutoMax. All rights reserved.
         </div>
       </div>
     </footer>
