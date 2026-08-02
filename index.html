@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clipautomax® — AI Concierge for E-Commerce Storefronts</title>
+    <meta name="description" content="Automate sizing recommendations, shipping rules, and lead capture 24/7 for fashion & retail stores with Clipautomax AI Concierge." />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Open Graph / Facebook Link Preview Tags -->
+    <meta property="og:site_name" content="Clipautomax®" />
+    <meta property="og:title" content="Clipautomax® — AI Concierge for E-Commerce Storefronts" />
+    <meta property="og:description" content="Automate sizing recommendations, shipping rules, and lead capture 24/7 for fashion & retail stores. Founding client rate from $197/mo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/og-image.svg" />
+
+    <!-- Twitter Card Link Preview Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Clipautomax® — AI Concierge for E-Commerce Storefronts" />
+    <meta name="twitter:description" content="Automate sizing recommendations, shipping rules, and lead capture 24/7 for fashion & retail stores. Founding client rate from $197/mo." />
+    <meta name="twitter:image" content="/og-image.svg" />
+
+    <!-- Vercel Analytics Readiness -->
+    <script defer src="/_vercel/insights/script.js"></script>
+    
+    <!-- Google Fonts CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Three.js CDN (r128) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Inlined Master Stylesheet -->
+    <style>
+      :root {
+        --bg-main: #F2F1ED;
+        --bg-ink: #121212;
+        --bg-card: #FFFFFF;
+        --text-ink: #121212;
+        --text-soft: #55534D;
+        --border-color: #E4E2DC;
+        --accent-teal: #3FD9C7;
+        --radius-hero: 24px;
+        --radius-card: 16px;
+        --radius-pill: 9999px;
+        --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
+        --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--bg-main);
+        color: var(--text-ink);
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      h1, h2, h3, h4, .font-display {
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+      }
+
+      .font-mono-tag {
+        font-family: 'JetBrains Mono', monospace;
+      }
+
+      /* Framed Hero Card Container */
+      .hero-card-container {
+        background-color: var(--bg-ink);
+        color: #FFFFFF;
+        border-radius: var(--radius-hero);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Content & Feature Cards */
+      .card-clean {
+        background-color: var(--bg-card);
+        border-radius: var(--radius-card);
+        padding: 2rem;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-subtle);
+        transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+      }
+
+      .card-clean:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-hover);
+        border-color: #C5C2B8;
+      }
+
+      .card-clean-static {
+        background-color: var(--bg-card);
+        border-radius: var(--radius-card);
+        padding: 2rem;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-subtle);
+      }
+
+      /* Buttons */
+      .btn-pill-dark {
+        background-color: var(--bg-ink);
+        color: #FFFFFF;
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        padding: 0.75rem 1.75rem;
+        border-radius: var(--radius-pill);
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        text-decoration: none;
+        border: 1px solid var(--bg-ink);
+        white-space: nowrap;
+      }
+
+      .btn-pill-dark:hover {
+        background-color: #262626;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .btn-pill-white {
+        background-color: #FFFFFF;
+        color: var(--bg-ink);
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        padding: 0.75rem 1.75rem;
+        border-radius: var(--radius-pill);
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        text-decoration: none;
+        border: none;
+        white-space: nowrap;
+      }
+
+      .btn-pill-white:hover {
+        background-color: #F2F1ED;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+      }
+
+      .btn-pill-outline {
+        background-color: transparent;
+        color: var(--text-ink);
+        border: 1px solid var(--border-color);
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        padding: 0.75rem 1.75rem;
+        border-radius: var(--radius-pill);
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .btn-pill-outline:hover {
+        background-color: #FFFFFF;
+        border-color: var(--text-ink);
+        transform: translateY(-2px);
+      }
+
+      .btn-pill-hero-outline {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #FFFFFF;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        padding: 0.75rem 1.75rem;
+        border-radius: var(--radius-pill);
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .btn-pill-hero-outline:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-color: #FFFFFF;
+        transform: translateY(-2px);
+      }
+
+      /* Eyebrows & Tags */
+      .eyebrow-tag {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .dot-teal {
+        width: 6px;
+        height: 6px;
+        border-radius: 9999px;
+        background-color: var(--accent-teal);
+        box-shadow: 0 0 8px var(--accent-teal);
+        display: inline-block;
+      }
+
+      /* Step Badges */
+      .step-number {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-soft);
+        letter-spacing: 0.05em;
+      }
+
+      /* Canvas overlay inside hero card */
+      #hero-3d-canvas {
+        width: 100%;
+        height: 280px;
+        display: block;
+      }
+
+      /* Touch-optimized smooth scrolling for overflow tables */
+      .overflow-x-auto {
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* Mobile responsive refinements */
+      @media (max-width: 640px) {
+        .hero-card-container {
+          border-radius: 18px;
+        }
+        
+        .card-clean, .card-clean-static {
+          padding: 1.25rem;
+          border-radius: 14px;
+        }
+
+        .btn-pill-white, .btn-pill-dark, .btn-pill-outline, .btn-pill-hero-outline {
+          min-height: 44px;
+        }
+      }
+
+      /* Fix for Voiceglow/ConvoCore Chatbot Overlay Widget text & popup visibility */
+      #VG_OVERLAY_CONTAINER {
+        position: fixed !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        z-index: 999999 !important;
+        color: #121212 !important;
+        pointer-events: auto !important;
+      }
+
+      @media (max-width: 480px) {
+        #VG_OVERLAY_CONTAINER {
+          bottom: 8px !important;
+          right: 8px !important;
+        }
+      }
+
+      #VG_OVERLAY_CONTAINER * {
+        box-sizing: border-box !important;
+      }
+
+      #VG_OVERLAY_CONTAINER iframe {
+        border: none !important;
+        color-scheme: light !important;
+      }
+    </style>
+  </head>
+  <body class="bg-[#F2F1ED] text-[#121212] min-h-screen flex flex-col font-sans">
+    <div id="static-site" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-12">
+      <!-- 1. Hero Framed Card Container -->
+      <header class="hero-card-container p-6 sm:p-10">
+        <!-- Top Navigation Header inside Hero -->
+        <div class="flex items-center justify-between pb-8 border-b border-white/10">
+          <a href="index.html" class="flex items-center gap-2.5 text-white no-underline">
+            <!-- Black droplet mark logo icon -->
+            <div class="w-9 h-9 rounded-full bg-white text-[#121212] flex items-center justify-center font-bold text-lg shadow-sm">
+              💧
+            </div>
+            <span class="text-xl sm:text-2xl font-black tracking-tight font-display text-white">ClipAutomax®</span>
+          </a>
+
+          <nav class="hidden md:flex items-center gap-8">
+            <a href="pricing.html" class="text-sm font-semibold text-white/80 hover:text-white transition-colors">Pricing</a>
+            <a href="compare.html" class="text-sm font-semibold text-white/80 hover:text-white transition-colors">Compare</a>
+          </nav>
+
+          <div class="flex items-center gap-4">
+            <a href="pricing.html" class="btn-pill-white text-xs sm:text-sm py-2.5 px-5">
+              Get Started →
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-white hover:text-slate-300" aria-label="Toggle Menu">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#1a1a1a] border-b border-white/10 px-6 py-6 space-y-4 my-4 rounded-xl">
+          <a href="pricing.html" class="block text-base font-semibold text-white/80 py-1">Pricing</a>
+          <a href="compare.html" class="block text-base font-semibold text-white/80 py-1">Compare</a>
+          <a href="terms.html" class="block text-base font-semibold text-white/80 py-1">Terms & Conditions</a>
+          <a href="privacy.html" class="block text-base font-semibold text-white/80 py-1">Privacy Policy</a>
+          <a href="pricing.html" class="btn-pill-white w-full text-center py-3 text-sm">Get Started →</a>
+        </div>
+
+        <!-- Hero Content & 3D Bot Character Stage -->
+        <div class="pt-8 pb-4 text-center max-w-4xl mx-auto">
+          <div class="mb-4">
+            <span class="eyebrow-tag font-mono-tag text-[#3FD9C7]">
+              <span class="dot-teal"></span> TEXT CONCIERGE
+            </span>
+          </div>
+
+          <!-- 3D Bot Canvas Stage -->
+          <div class="relative w-full max-w-lg mx-auto mb-6">
+            <canvas id="hero-3d-canvas"></canvas>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-white mb-6 font-display">
+            Never Lose A Sale To An <span class="text-[#3FD9C7]">Unanswered Question.</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
+            Automate sizing, returns, and lead capture for your fashion & store visitors 24/7 with the Clipautomax AI Concierge.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="pricing.html" class="w-full sm:w-auto btn-pill-white text-sm sm:text-base py-3.5 px-8">
+              Get Started →
+            </a>
+            <a href="#process" class="w-full sm:w-auto btn-pill-hero-outline text-sm sm:text-base py-3.5 px-8">
+              How It Works
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Loom Video Demo Walkthrough Section -->
+      <section class="py-6 max-w-5xl mx-auto px-4 sm:px-0">
+        <div class="card-clean-static p-4 sm:p-8 bg-white rounded-2xl border border-[#E4E2DC]">
+          <div class="text-center mb-6">
+            <span class="eyebrow-tag font-mono-tag text-[#121212] mb-2">
+              <span class="dot-teal"></span> SEE IT IN ACTION
+            </span>
+            <h2 class="text-xl sm:text-3xl font-black text-[#121212] font-display">
+              Watch the Live Concierge Walkthrough
+            </h2>
+            <p class="text-xs sm:text-sm text-[#55534D] mt-2 max-w-xl mx-auto">
+              A real walkthrough of the AI concierge handling a live shopping conversation.
+            </p>
+          </div>
+
+          <div class="rounded-xl overflow-hidden border border-[#E4E2DC] shadow-sm bg-black" style="position: relative; padding-bottom: 62.5%; height: 0;">
+            <iframe 
+              src="https://www.loom.com/embed/fc7e081d575646d3a2b1bed63c48941a" 
+              frameborder="0" 
+              webkitallowfullscreen 
+              mozallowfullscreen 
+              allowfullscreen 
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            </iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Problem & Solution Section -->
+      <section class="py-8 max-w-6xl mx-auto">
+        <div class="card-clean-static p-8 sm:p-12 bg-white rounded-2xl border border-[#E4E2DC]">
+          <div class="text-center mb-8">
+            <span class="eyebrow-tag font-mono-tag text-[#121212] mb-2">
+              <span class="dot-teal"></span> WHY STORES LOSE SALES
+            </span>
+            <h2 class="text-2xl sm:text-4xl font-black text-[#121212] font-display">
+              The Cost of Unanswered Visitor Questions
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            <!-- Problem Framing Card -->
+            <div class="bg-[#F2F1ED] p-6 sm:p-8 rounded-xl border border-[#E4E2DC] flex flex-col justify-between">
+              <div>
+                <div class="inline-block px-3 py-1 bg-red-100 text-red-700 text-xs font-mono-tag font-bold rounded-full mb-4">
+                  ⚠️ THE PROBLEM
+                </div>
+                <h3 class="text-xl font-bold text-[#121212] mb-3 font-display">70% Cart Abandonment Rate</h3>
+                <p class="text-sm text-[#55534D] leading-relaxed mb-4">
+                  Over half of online shoppers abandon their cart simply because they couldn't get a quick answer to a pre-purchase question — such as sizing fit, shipping timeline, or return policies.
+                </p>
+              </div>
+              <div class="text-[11px] text-slate-400 font-mono-tag pt-4 border-t border-[#E4E2DC]">
+                Source: Baymard Institute E-Commerce Usability Benchmark
+              </div>
+            </div>
+
+            <!-- Solution Framing Card -->
+            <div class="bg-[#121212] text-white p-6 sm:p-8 rounded-xl border border-[#262626] flex flex-col justify-between">
+              <div>
+                <div class="inline-block px-3 py-1 bg-[#3FD9C7]/20 text-[#3FD9C7] text-xs font-mono-tag font-bold rounded-full mb-4">
+                  ⚡ THE SOLUTION
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3 font-display">20-25% Conversion Lift</h3>
+                <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                  Clipautomax AI Concierge provides instant, 24/7 automated answers trained on your exact catalog and sizing rules, capturing emails directly to Google Sheets before shoppers bounce.
+                </p>
+              </div>
+              <div class="text-[11px] text-[#3FD9C7] font-mono-tag pt-4 border-t border-white/10 flex items-center justify-between">
+                <span>Cross-Source E-Commerce Consensus</span>
+                <a href="pricing.html" class="text-white hover:underline font-bold">See Founding Rates →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Core Feature Cards Grid -->
+      <section class="py-8 max-w-6xl mx-auto">
+        <div class="text-center mb-10">
+          <span class="eyebrow-tag font-mono-tag text-[#121212] mb-2">
+            <span class="dot-teal"></span> CAPABILITIES
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-black text-[#121212] font-display">
+            Built Specifically for Store Owners
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="card-clean">
+            <div class="w-10 h-10 rounded-xl bg-[#121212] text-[#3FD9C7] flex items-center justify-center font-bold text-lg mb-4">
+              💬
+            </div>
+            <h3 class="text-lg font-bold text-[#121212] mb-2 font-display">Instant Answers</h3>
+            <p class="text-xs text-[#55534D] leading-relaxed">
+              Accurately resolves sizing guides, inventory checks, and shipping policies. Trained specifically on your catalog to keep answers accurate.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <div class="w-10 h-10 rounded-xl bg-[#121212] text-[#3FD9C7] flex items-center justify-center font-bold text-lg mb-4">
+              📊
+            </div>
+            <h3 class="text-lg font-bold text-[#121212] mb-2 font-display">Lead Capture</h3>
+            <p class="text-xs text-[#55534D] leading-relaxed">
+              Auto-logs shopper emails, phone numbers, and measurements directly to Google Sheets in real time.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <div class="w-10 h-10 rounded-xl bg-[#121212] text-[#3FD9C7] flex items-center justify-center font-bold text-lg mb-4">
+              🌙
+            </div>
+            <h3 class="text-lg font-bold text-[#121212] mb-2 font-display">24/7 Coverage</h3>
+            <p class="text-xs text-[#55534D] leading-relaxed">
+              Captures late-night and international shopper sales when human support teams are offline.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <div class="w-10 h-10 rounded-xl bg-[#121212] text-[#3FD9C7] flex items-center justify-center font-bold text-lg mb-4">
+              ⚡
+            </div>
+            <h3 class="text-lg font-bold text-[#121212] mb-2 font-display">Live in Days</h3>
+            <p class="text-xs text-[#55534D] leading-relaxed">
+              Simple 1-line script installation on Shopify, WooCommerce, or custom storefronts with zero code changes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. 3-Step Integration Process -->
+      <section id="process" class="py-10 max-w-6xl mx-auto scroll-mt-10">
+        <div class="text-center mb-12">
+          <span class="eyebrow-tag font-mono-tag text-[#121212] mb-2">
+            <span class="dot-teal"></span> SIMPLE DEPLOYMENT
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-black text-[#121212] font-display">
+            Transform Good Chats Into Great Ones
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="card-clean">
+            <span class="step-number block mb-3">01 /</span>
+            <h3 class="text-lg font-bold text-[#121212] mb-2 font-display">Install 1-Line Snippet</h3>
+            <p class="text-xs text-[#55534D] leading-relaxed">
+              Takes less than 2 minutes on Shopify, WooCommerce, Webflow, or custom e-commerce stores.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <span class="step-number block mb-3">02 /</span>
+            <h3 class="text-lg font-bold text-[#121212] mb-2 font-display">Custom AI Knowledge Training</h3>
+            <p class="text-xs text-[#55534D] leading-relaxed">
+              Trained specifically on your product catalog, sizing charts, shipping rules, and return policies.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <span class="step-number block mb-3">03 /</span>
+            <h3 class="text-lg font-bold text-[#121212] mb-2 font-display">Auto-Log Leads to Google Sheets</h3>
+            <p class="text-xs text-[#55534D] leading-relaxed">
+              Real-time sync automatically logs visitor emails and sizing inquiries into your lead pipeline.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Final CTA Footer Block with Guarantee -->
+      <section class="py-10 max-w-6xl mx-auto">
+        <div class="hero-card-container p-8 sm:p-14 text-center">
+          <h2 class="text-2xl sm:text-4xl font-black text-white mb-4 font-display">
+            Ready to Launch Your AI Concierge in Days
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mb-6">
+            Be one of the first 5 founding store owners to automate customer answers and scale conversions 24/7.
+          </p>
+
+          <a href="pricing.html" class="btn-pill-white text-sm py-3.5 px-8 mb-4 inline-block">
+            Claim Founding Rate →
+          </a>
+
+          <div class="text-xs text-slate-400 font-mono-tag block mt-2">
+            48-hour money-back guarantee. No free trial gimmicks.
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Footer -->
+      <footer class="border-t border-[#E4E2DC] py-8 bg-white mt-auto rounded-xl px-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+          <div class="flex items-center gap-2">
+            <span class="font-extrabold text-[#121212] text-sm font-display">ClipAutomax®</span>
+            <span class="text-slate-400 font-mono-tag">| AI Concierge Engine</span>
+          </div>
+
+          <div class="flex items-center gap-6 font-semibold text-[#55534D]">
+            <a href="index.html" class="hover:text-[#121212]">Home</a>
+            <a href="pricing.html" class="hover:text-[#121212]">Pricing</a>
+            <a href="compare.html" class="hover:text-[#121212]">Compare</a>
+            <a href="terms.html" class="hover:text-[#121212]">Terms & Conditions</a>
+            <a href="privacy.html" class="hover:text-[#121212]">Privacy Policy</a>
+            <a href="mailto:Clipautomax@gmail.com" class="hover:text-[#121212]">Clipautomax@gmail.com</a>
+          </div>
+
+          <div class="text-slate-400">
+            © 2026 Clipautomax. All rights reserved.
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Inlined Master Scripts -->
+    <script>
+      // 1. Script Error Handling
+      window.addEventListener('error', function(e) {
+        if (e.message === 'Script error.' || (e.filename && (e.filename.indexOf('vg_bundle') !== -1 || e.filename.indexOf('b-cdn.net') !== -1))) {
+          if (e.preventDefault) e.preventDefault();
+          if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+          return true;
+        }
+      }, true);
+      window.onerror = function(msg, url) {
+        if (msg === 'Script error.' || (url && (url.indexOf('vg_bundle') !== -1 || url.indexOf('b-cdn.net') !== -1))) {
+          return true;
+        }
+      };
+
+      // 2. DOM Ready Listeners & Mobile Nav Toggle
+      document.addEventListener('DOMContentLoaded', function () {
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+          mobileMenuBtn.addEventListener('click', function () {
+            mobileMenu.classList.toggle('hidden');
+          });
+        }
+
+        // Smooth Scroll Anchor Links
+        const anchorLinks = document.querySelectorAll('a[href^="#"]');
+        anchorLinks.forEach(function (link) {
+          link.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== '#') {
+              const targetElement = document.querySelector(targetId);
+              if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                  mobileMenu.classList.add('hidden');
+                }
+              }
+            }
+          });
+        });
+
+        // Initialize 3D Bot Character Canvas
+        const heroCanvas = document.getElementById('hero-3d-canvas');
+        if (heroCanvas && typeof THREE !== 'undefined') {
+          init3DBotCharacter(heroCanvas);
+        }
+      });
+
+      // 3. Three.js 3D Bot Character Render Engine
+      function init3DBotCharacter(canvas) {
+        try {
+          const container = canvas.parentElement;
+          if (!container) return;
+
+          const width = container.clientWidth || 320;
+          const height = canvas.clientHeight || 280;
+
+          const scene = new THREE.Scene();
+          const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+          camera.position.set(0, 0, 7.5);
+
+          const renderer = new THREE.WebGLRenderer({
+            canvas: canvas,
+            alpha: true,
+            antialias: true,
+            powerPreference: 'high-performance'
+          });
+          renderer.setSize(width, height);
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+          const botGroup = new THREE.Group();
+          scene.add(botGroup);
+
+          const darkMat = new THREE.MeshStandardMaterial({
+            color: 0x18181b,
+            roughness: 0.45,
+            metalness: 0.15
+          });
+
+          const tealMat = new THREE.MeshBasicMaterial({ color: 0x3fd9c7 });
+
+          const eyeGlowMat = new THREE.MeshBasicMaterial({
+            color: 0x3fd9c7,
+            transparent: true,
+            opacity: 0.35
+          });
+
+          // Head
+          const headGeo = new THREE.SphereGeometry(0.85, 32, 32);
+          const headMesh = new THREE.Mesh(headGeo, darkMat);
+          headMesh.position.y = 0.9;
+          botGroup.add(headMesh);
+
+          // Eyes
+          const eyeGeo = new THREE.SphereGeometry(0.12, 16, 16);
+          const eyeGlowGeo = new THREE.SphereGeometry(0.2, 16, 16);
+
+          const leftEye = new THREE.Mesh(eyeGeo, tealMat);
+          leftEye.position.set(-0.3, 0.98, 0.75);
+          botGroup.add(leftEye);
+
+          const leftEyeGlow = new THREE.Mesh(eyeGlowGeo, eyeGlowMat);
+          leftEyeGlow.position.copy(leftEye.position);
+          botGroup.add(leftEyeGlow);
+
+          const rightEye = new THREE.Mesh(eyeGeo, tealMat);
+          rightEye.position.set(0.3, 0.98, 0.75);
+          botGroup.add(rightEye);
+
+          const rightEyeGlow = new THREE.Mesh(eyeGlowGeo, eyeGlowMat);
+          rightEyeGlow.position.copy(rightEye.position);
+          botGroup.add(rightEyeGlow);
+
+          // Antenna
+          const stemGeo = new THREE.CylinderGeometry(0.03, 0.03, 0.4, 12);
+          const stemMesh = new THREE.Mesh(stemGeo, darkMat);
+          stemMesh.position.set(0, 1.85, 0);
+          botGroup.add(stemMesh);
+
+          const tipGeo = new THREE.SphereGeometry(0.12, 16, 16);
+          const tipMesh = new THREE.Mesh(tipGeo, tealMat);
+          tipMesh.position.set(0, 2.05, 0);
+          botGroup.add(tipMesh);
+
+          // Body
+          const bodyCyl = new THREE.CylinderGeometry(0.7, 0.7, 0.9, 32);
+          const bodyMesh = new THREE.Mesh(bodyCyl, darkMat);
+          bodyMesh.position.y = -0.15;
+          botGroup.add(bodyMesh);
+
+          const bodyCapTop = new THREE.SphereGeometry(0.7, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2);
+          const bodyCapTopMesh = new THREE.Mesh(bodyCapTop, darkMat);
+          bodyCapTopMesh.position.y = 0.3;
+          botGroup.add(bodyCapTopMesh);
+
+          const bodyCapBottom = new THREE.SphereGeometry(0.7, 32, 16, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2);
+          const bodyCapBottomMesh = new THREE.Mesh(bodyCapBottom, darkMat);
+          bodyCapBottomMesh.position.y = -0.6;
+          botGroup.add(bodyCapBottomMesh);
+
+          // Arms
+          const armGeo = new THREE.CylinderGeometry(0.12, 0.12, 0.6, 16);
+          const handGeo = new THREE.SphereGeometry(0.14, 16, 16);
+
+          const leftArmGroup = new THREE.Group();
+          const leftArmMesh = new THREE.Mesh(armGeo, darkMat);
+          const leftHandMesh = new THREE.Mesh(handGeo, darkMat);
+          leftHandMesh.position.y = -0.3;
+          leftArmGroup.add(leftArmMesh);
+          leftArmGroup.add(leftHandMesh);
+          leftArmGroup.position.set(-0.92, -0.1, 0);
+          leftArmGroup.rotation.z = Math.PI / 12;
+          botGroup.add(leftArmGroup);
+
+          const rightArmGroup = new THREE.Group();
+          const rightArmMesh = new THREE.Mesh(armGeo, darkMat);
+          const rightHandMesh = new THREE.Mesh(handGeo, darkMat);
+          rightHandMesh.position.y = -0.3;
+          rightArmGroup.add(rightArmMesh);
+          rightArmGroup.add(rightHandMesh);
+          rightArmGroup.position.set(0.92, -0.1, 0);
+          rightArmGroup.rotation.z = -Math.PI / 12;
+          botGroup.add(rightArmGroup);
+
+          // Shadow
+          const shadowGeo = new THREE.CircleGeometry(0.9, 32);
+          const shadowMat = new THREE.MeshBasicMaterial({
+            color: 0x000000,
+            transparent: true,
+            opacity: 0.35
+          });
+          const shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
+          shadowMesh.rotation.x = -Math.PI / 2;
+          shadowMesh.position.y = -1.6;
+          scene.add(shadowMesh);
+
+          // Lighting
+          const ambientLight = new THREE.AmbientLight(0xffffff, 0.55);
+          scene.add(ambientLight);
+
+          const keyLight = new THREE.DirectionalLight(0xffffff, 0.85);
+          keyLight.position.set(3, 5, 4);
+          scene.add(keyLight);
+
+          const rimLight = new THREE.DirectionalLight(0x3fd9c7, 0.75);
+          rimLight.position.set(-4, -2, -3);
+          scene.add(rimLight);
+
+          // Animation
+          let clock = new THREE.Clock();
+
+          function animate() {
+            requestAnimationFrame(animate);
+            const elapsed = clock.getElapsedTime();
+
+            const bob = Math.sin(elapsed * 2.2) * 0.12;
+            botGroup.position.y = bob;
+            botGroup.rotation.y = Math.sin(elapsed * 1.2) * 0.15;
+
+            leftArmGroup.rotation.x = Math.sin(elapsed * 2.2) * 0.1;
+            rightArmGroup.rotation.x = -Math.sin(elapsed * 2.2) * 0.1;
+
+            const shadowScale = 1 - bob * 0.6;
+            shadowMesh.scale.set(shadowScale, shadowScale, 1);
+            shadowMat.opacity = 0.35 - bob * 0.1;
+
+            renderer.render(scene, camera);
+          }
+
+          animate();
+
+          window.addEventListener('resize', function () {
+            if (!canvas.parentElement) return;
+            const w = canvas.parentElement.clientWidth;
+            const h = canvas.clientHeight || 280;
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+          });
+
+        } catch (err) {
+          console.error('Three.js bot initialization error:', err);
+        }
+      }
+    </script>
+
+    <!-- Real ConvoCore Overlay Widget Embed -->
+    <div id="VG_OVERLAY_CONTAINER"></div>
+    <script defer>
+      (function() {
+        if (document.getElementById('convo-core-script')) return;
+        window.VG_CONFIG = {
+          ID: "DS627NsuTHCZ1d2KSaDE",
+          region: 'na',
+          render: 'bottom-right',
+          stylesheets: [
+            "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css"
+          ],
+        }
+        var VG_SCRIPT = document.createElement("script");
+        VG_SCRIPT.id = "convo-core-script";
+        VG_SCRIPT.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js";
+        VG_SCRIPT.defer = true;
+        VG_SCRIPT.crossOrigin = "anonymous";
+        VG_SCRIPT.onerror = function() {
+          console.warn("ConvoCore widget script failed to load.");
+        };
+        document.body.appendChild(VG_SCRIPT);
+      })();
+    </script>
+  </body>
+</html>
